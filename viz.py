@@ -9,6 +9,7 @@ class Plotter:
 
     def __init__(self):
         plt.ion()
+        plt.rcParams["figure.figsize"] = (20, 10)
 
     def draw_grid(self, gdata):
         r, c = len(gdata), len(gdata[0])

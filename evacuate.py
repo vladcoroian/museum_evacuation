@@ -12,7 +12,7 @@ pp = pprint.PrettyPrinter(indent=4).pprint
 def main():
     parser = ArgumentParser()
     parser.add_argument('-i', '--input', type=str,
-                        default='in/gym2Exit.txt',
+                        default='in/museum.txt',
                         help='input floor plan file (default: '
                              'in/twoexitbottleneck.py)')
     parser.add_argument('-n', '--numpeople', type=int, default=10,
@@ -55,6 +55,7 @@ def main():
                     animation_delay=args.animation_delay, verbose=args.output)
 
     # call the simulate method to run the actual simulation
+
     floor.simulate(maxtime=args.max_time, gui=not args.no_graphical_output)
     floor.stats()
 
