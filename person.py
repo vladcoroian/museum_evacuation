@@ -1,5 +1,7 @@
+import random
+
 class Person:
-    def __init__(self, id, rate: float = 1.0, strategy: float = .7, loc: tuple = None):
+    def __init__(self, id, rate: float = 1.0, strategy: float = .1, loc: tuple = None):
         self.id = id
         self.rate = rate
         self.strategy = strategy
@@ -13,8 +15,9 @@ class Person:
         if not nbrs:
             return None
         loc, attrs = min(nbrs, key=lambda tup: tup[1]['distS'])
-        self.loc = loc
-        if attrs['S']:
-            self.safe = True
-
-        return loc
+        if random.random() < self.strategy:
+            self.loc = loc
+            if attrs['S']:
+                self.safe = True
+            return loc
+        return self.loc
